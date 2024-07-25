@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+body{
+    background-color: #3b3b3b;
+    font-family: var(--fonte-padrao);
+}
+
+h1{
+    background-color: antiquewhite;
+    color:pink
+}
+
+h2{
+    color: purple;
+    background-color: cadetblue;
+}
+
+p{
+    color: white;
+}
+
+ul{
+    color: aqua;
+}
+
+footer{
+    background-color: rgb(145, 170, 78);
+    color: #3b3b3b;
+}
+
+ol{
+    color: white;
+}

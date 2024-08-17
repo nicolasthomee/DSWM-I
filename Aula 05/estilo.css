@@ -47,7 +47,6 @@ header {
 }
 
 nav {
-    padding-top: 20px;
     display: flex;
     align-items: center;
 }
@@ -79,6 +78,10 @@ section#visita {
     background: #cdc8b1;
     padding: 10px 27px 27px 27px;
     margin-top: 20px;
+}
+
+.botao {
+    margin-top: 7px;
 }
 
 section#fotos {

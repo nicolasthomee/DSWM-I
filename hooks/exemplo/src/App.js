@@ -1,15 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
-function App(){
-  const [tarefas, setTarefas] = useState(
-    ['Pagar a conta de luz', 'Estudar React']
-  );
+function App() {
+  const [tarefas, setTarefas] = useState(['Pagar a conta de luz', 'Estudar React']);
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    const tarefasStorage = localStorage.getItem('tarefas')
-
-    if(tarefasStorage){
+    const tarefasStorage = localStorage.getItem('tarefas');
+    if (tarefasStorage) {
       setTarefas(JSON.parse(tarefasStorage));
     }
   }, []);
@@ -18,22 +15,25 @@ function App(){
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
   }, [tarefas]);
 
-  function adicionarTarefas(){
-    setTarefas([...tarefas, input]);
+  function adicionarTarefas() {
+    if (input.trim() === '') return; // Verifica se o input está vazio
+    setTarefas(prevTarefas => [...prevTarefas, input]);
     setInput('');
   }
 
-  return(
+  return (
     <div>
       <ul>
-        {tarefas.map( tarefa => (
+        {tarefas.map(tarefa => (
           <li key={tarefa}>{tarefa}</li>
-        )
-
-        )}
+        ))}
       </ul>
 
-      <input type="text" value={input} onChange={e => setInput(e.target.value)}/>
+      <input 
+        type="text" 
+        value={input} 
+        onChange={e => setInput(e.target.value)} 
+      />
       <button type="button" onClick={adicionarTarefas}>Adicionar</button>
     </div>
   );
